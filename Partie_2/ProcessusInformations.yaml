@@ -1,0 +1,60 @@
+PROCESSUS EN COURS:
+- - 1
+  - init
+  - sleeping
+  - 0
+  - - /init
+- - 96
+  - mysqld_safe
+  - sleeping
+  - 1
+  - - /bin/sh
+    - /usr/bin/mysqld_safe
+- - 199
+  - mariadbd
+  - sleeping
+  - 96
+  - - /usr/sbin/mariadbd
+    - --basedir=/usr
+    - --datadir=/var/lib/mysql
+    - --plugin-dir=/usr/lib/mysql/plugin
+    - --user=mysql
+    - --skip-log-error
+    - --pid-file=/run/mysqld/mysqld.pid
+    - --socket=/run/mysqld/mysqld.sock
+- - 200
+  - logger
+  - sleeping
+  - 96
+  - - logger
+    - -t
+    - mysqld
+    - -p
+    - daemon
+    - error
+- - 423
+  - init
+  - sleeping
+  - 1
+  - - /init
+- - 424
+  - bash
+  - sleeping
+  - 423
+  - - -bash
+- - 454
+  - init
+  - sleeping
+  - 1
+  - - /init
+- - 455
+  - bash
+  - sleeping
+  - 454
+  - - -bash
+- - 494
+  - python3
+  - running
+  - 455
+  - - python3
+    - ExportToYAML.py
